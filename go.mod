@@ -3,7 +3,7 @@ module github.com/dennor/go-paddle
 go 1.12
 
 require (
-	github.com/dennor/phpserialize v0.0.0-20190417095236-d53ec423dac4
+	github.com/dennor/phpserialize v0.0.0-20190418150525-50536d846259
 	github.com/dennor/urldecode v0.0.0-20190417095255-36add128367a
 	github.com/shopspring/decimal v0.0.0-20180709203117-cd690d0c9e24
 	github.com/stretchr/objx v0.2.0 // indirect
