@@ -37,7 +37,7 @@ func subscriptionPaymentDisputeClosedData() struct {
 		CheckoutID:       d.M["checkout_id"],
 		Currency:         d.M["currency"],
 		Email:            d.M["email"],
-		EventTime:        &types.TimeYYYYMMDDHHmmSS{test.ParseTime(types.TimeFormatYYYYMMDDHHmmSS, d.M["event_time"])},
+		EventTime:        &types.Datetime{test.ParseTime(types.DatetimeFormat, d.M["event_time"])},
 		FeeUsd:           test.DecimalFromString(d.M["fee_usd"]),
 		MarketingConsent: &mc,
 		OrderID:          int(test.IntFromString(d.M["order_id"])),

@@ -10,13 +10,13 @@ const TransferPaidAlertName = "transfer_paid"
 
 // TransferPaid refer to https://paddle.com/docs/reference-using-webhooks/#transfer_paid
 type TransferPaid struct {
-	AlertName  string                    `json:"alert_name"`
-	Amount     *decimal.Decimal          `json:"amount,string"`
-	Currency   string                    `json:"currency"`
-	EventTime  *types.TimeYYYYMMDDHHmmSS `json:"event_time,string"`
-	PayoutID   int                       `json:"payout_id,string"`
-	Status     string                    `json:"status"`
-	PSignature string                    `json:"p_signature" php:"-"`
+	AlertName  string           `json:"alert_name"`
+	Amount     *decimal.Decimal `json:"amount,string"`
+	Currency   string           `json:"currency"`
+	EventTime  *types.Datetime  `json:"event_time,string"`
+	PayoutID   int              `json:"payout_id,string"`
+	Status     string           `json:"status"`
+	PSignature string           `json:"p_signature" php:"-"`
 }
 
 func (t *TransferPaid) Serialize() ([]byte, error) {

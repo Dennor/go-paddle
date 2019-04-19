@@ -10,22 +10,22 @@ const CreatedAlertName = "subscription_created"
 
 // Created refer to https://paddle.com/docs/subscriptions-event-reference/#subscription_created
 type Created struct {
-	AlertName          string                    `json:"alert_name"`
-	CancelUrl          string                    `json:"cancel_url"`
-	CheckoutID         string                    `json:"checkout_id"`
-	Currency           string                    `json:"currency"`
-	Email              string                    `json:"email"`
-	EventTime          *types.TimeYYYYMMDDHHmmSS `json:"event_time,string"`
-	MarketingConsent   *types.MarketingConsent   `json:"marketing_consent,string"`
-	NextBillDate       *types.TimeYYYYMMDD       `json:"next_bill_date,string"`
-	Passthrough        string                    `json:"passthrough"`
-	Quantity           int                       `json:"quantity,string"`
-	Status             string                    `json:"status"`
-	SubscriptionID     int                       `json:"subscription_id,string"`
-	SubscriptionPlanID int                       `json:"subscription_plan_id,string"`
-	UnitPrice          *decimal.Decimal          `json:"unit_price,string"`
-	UpdateURL          string                    `json:"update_url"`
-	PSignature         string                    `json:"p_signature" php:"-"`
+	AlertName          string                  `json:"alert_name"`
+	CancelUrl          string                  `json:"cancel_url"`
+	CheckoutID         string                  `json:"checkout_id"`
+	Currency           string                  `json:"currency"`
+	Email              string                  `json:"email"`
+	EventTime          *types.Datetime         `json:"event_time,string"`
+	MarketingConsent   *types.MarketingConsent `json:"marketing_consent,string"`
+	NextBillDate       *types.Date             `json:"next_bill_date,string"`
+	Passthrough        string                  `json:"passthrough"`
+	Quantity           int                     `json:"quantity,string"`
+	Status             string                  `json:"status"`
+	SubscriptionID     int                     `json:"subscription_id,string"`
+	SubscriptionPlanID int                     `json:"subscription_plan_id,string"`
+	UnitPrice          *decimal.Decimal        `json:"unit_price,string"`
+	UpdateURL          string                  `json:"update_url"`
+	PSignature         string                  `json:"p_signature" php:"-"`
 }
 
 func (s *Created) Serialize() ([]byte, error) {

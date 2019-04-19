@@ -28,7 +28,7 @@ func subscriptionTransferCreatedData() struct {
 		AlertName:  d.M["alert_name"],
 		Amount:     test.DecimalFromString(d.M["amount"]),
 		Currency:   d.M["currency"],
-		EventTime:  &types.TimeYYYYMMDDHHmmSS{test.ParseTime(types.TimeFormatYYYYMMDDHHmmSS, d.M["event_time"])},
+		EventTime:  &types.Datetime{test.ParseTime(types.DatetimeFormat, d.M["event_time"])},
 		PayoutID:   int(test.IntFromString(d.M["payout_id"])),
 		Status:     d.M["status"],
 		PSignature: d.M["p_signature"],

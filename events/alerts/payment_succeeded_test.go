@@ -63,7 +63,7 @@ func subscriptionPaymentSucceededData() struct {
 		CustomerName:      d.M["customer_name"],
 		Earnings:          test.DecimalFromString(d.M["earnings"]),
 		Email:             d.M["email"],
-		EventTime:         &types.TimeYYYYMMDDHHmmSS{test.ParseTime(types.TimeFormatYYYYMMDDHHmmSS, d.M["event_time"])},
+		EventTime:         &types.Datetime{test.ParseTime(types.DatetimeFormat, d.M["event_time"])},
 		Fee:               test.DecimalFromString(d.M["fee"]),
 		IP:                &ip,
 		MarketingConsent:  &mc,

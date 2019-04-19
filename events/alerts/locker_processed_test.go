@@ -40,7 +40,7 @@ func lockerProcessedData() struct {
 		Coupon:           d.M["coupon"],
 		Download:         d.M["download"],
 		Email:            d.M["email"],
-		EventTime:        &types.TimeYYYYMMDDHHmmSS{test.ParseTime(types.TimeFormatYYYYMMDDHHmmSS, d.M["event_time"])},
+		EventTime:        &types.Datetime{test.ParseTime(types.DatetimeFormat, d.M["event_time"])},
 		Instructions:     d.M["instructions"],
 		License:          d.M["license"],
 		MarketingConsent: &mc,

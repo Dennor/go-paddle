@@ -33,9 +33,9 @@ func subscriptionNewAudienceMemberData() struct {
 	mc.UnmarshalText([]byte(d.M["marketing_consent"]))
 	nam := NewAudienceMember{
 		AlertName:        d.M["alert_name"],
-		CreatedAt:        &types.TimeYYYYMMDDHHmmSS{test.ParseTime(types.TimeFormatYYYYMMDDHHmmSS, d.M["created_at"])},
+		CreatedAt:        &types.Datetime{test.ParseTime(types.DatetimeFormat, d.M["created_at"])},
 		Email:            d.M["email"],
-		EventTime:        &types.TimeYYYYMMDDHHmmSS{test.ParseTime(types.TimeFormatYYYYMMDDHHmmSS, d.M["event_time"])},
+		EventTime:        &types.Datetime{test.ParseTime(types.DatetimeFormat, d.M["event_time"])},
 		MarketingConsent: &mc,
 		Products:         &products,
 		Source:           d.M["source"],

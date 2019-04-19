@@ -52,7 +52,7 @@ func subscriptionPaymentRefundedData() struct {
 		Currency:                d.M["currency"],
 		EarningsDecrease:        test.DecimalFromString(d.M["earnings_decrease"]),
 		Email:                   d.M["email"],
-		EventTime:               &types.TimeYYYYMMDDHHmmSS{test.ParseTime(types.TimeFormatYYYYMMDDHHmmSS, d.M["event_time"])},
+		EventTime:               &types.Datetime{test.ParseTime(types.DatetimeFormat, d.M["event_time"])},
 		FeeRefund:               test.DecimalFromString(d.M["fee_refund"]),
 		GrossRefund:             test.DecimalFromString(d.M["gross_refund"]),
 		MarketingConsent:        &mc,

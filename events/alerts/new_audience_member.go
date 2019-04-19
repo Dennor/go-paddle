@@ -58,16 +58,16 @@ func (n AudienceMemberProducts) String() string {
 
 // NewAudienceMember refer to https://paddle.com/docs/reference-using-webhooks/#new_audience_member
 type NewAudienceMember struct {
-	AlertName        string                    `json:"alert_name"`
-	CreatedAt        *types.TimeYYYYMMDDHHmmSS `json:"created_at,string"`
-	Email            string                    `json:"email"`
-	EventTime        *types.TimeYYYYMMDDHHmmSS `json:"event_time,string"`
-	MarketingConsent *types.MarketingConsent   `json:"marketing_consent,string"`
-	Products         *AudienceMemberProducts   `json:"products,string"`
-	Source           string                    `json:"source"`
-	Subscribed       int                       `json:"subscribed,string"`
-	UserID           int                       `json:"user_id,string"`
-	PSignature       string                    `json:"p_signature" php:"-"`
+	AlertName        string                  `json:"alert_name"`
+	CreatedAt        *types.Datetime         `json:"created_at,string"`
+	Email            string                  `json:"email"`
+	EventTime        *types.Datetime         `json:"event_time,string"`
+	MarketingConsent *types.MarketingConsent `json:"marketing_consent,string"`
+	Products         *AudienceMemberProducts `json:"products,string"`
+	Source           string                  `json:"source"`
+	Subscribed       int                     `json:"subscribed,string"`
+	UserID           int                     `json:"user_id,string"`
+	PSignature       string                  `json:"p_signature" php:"-"`
 }
 
 func (m *NewAudienceMember) Serialize() ([]byte, error) {

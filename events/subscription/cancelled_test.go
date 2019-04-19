@@ -36,11 +36,11 @@ func subscriptionCancelledData() struct {
 	mc.UnmarshalText([]byte(d.M["marketing_consent"]))
 	sc := Cancelled{
 		AlertName:                 d.M["alert_name"],
-		CancellationEffectiveDate: &types.TimeYYYYMMDD{test.ParseTime(types.TimeFormatYYYYMMDD, d.M["cancellation_effective_date"])},
+		CancellationEffectiveDate: &types.Date{test.ParseTime(types.DateFormat, d.M["cancellation_effective_date"])},
 		CheckoutID:                d.M["checkout_id"],
 		Currency:                  d.M["currency"],
 		Email:                     d.M["email"],
-		EventTime:                 &types.TimeYYYYMMDDHHmmSS{test.ParseTime(types.TimeFormatYYYYMMDDHHmmSS, d.M["event_time"])},
+		EventTime:                 &types.Datetime{test.ParseTime(types.DatetimeFormat, d.M["event_time"])},
 		MarketingConsent:          &mc,
 		Passthrough:               d.M["passthrough"],
 		Quantity:                  int(test.IntFromString(d.M["quantity"])),

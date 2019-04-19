@@ -36,14 +36,14 @@ func subscriptionUpdateAudienceMemberData() struct {
 	omc.UnmarshalText([]byte(d.M["old_marketing_consent"]))
 	uam := UpdateAudienceMember{
 		AlertName:           d.M["alert_name"],
-		EventTime:           &types.TimeYYYYMMDDHHmmSS{test.ParseTime(types.TimeFormatYYYYMMDDHHmmSS, d.M["event_time"])},
+		EventTime:           &types.Datetime{test.ParseTime(types.DatetimeFormat, d.M["event_time"])},
 		NewCustomerEmail:    d.M["new_customer_email"],
 		NewMarketingConsent: &nmc,
 		OldCustomerEmail:    d.M["old_customer_email"],
 		OldMarketingConsent: &omc,
 		Products:            &products,
 		Source:              d.M["source"],
-		UpdatedAt:           &types.TimeYYYYMMDDHHmmSS{test.ParseTime(types.TimeFormatYYYYMMDDHHmmSS, d.M["updated_at"])},
+		UpdatedAt:           &types.Datetime{test.ParseTime(types.DatetimeFormat, d.M["updated_at"])},
 		UserID:              int(test.IntFromString(d.M["user_id"])),
 		PSignature:          d.M["p_signature"],
 	}

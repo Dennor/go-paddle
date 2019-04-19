@@ -5,54 +5,54 @@ import (
 )
 
 const (
-	TimeFormatYYYYMMDD       = "2006-01-02"
-	TimeFormatYYYYMMDDHHmmSS = "2006-01-02 15:04:05"
+	DateFormat     = "2006-01-02"
+	DatetimeFormat = "2006-01-02 15:04:05"
 )
 
-type TimeYYYYMMDD struct {
+type Date struct {
 	time.Time
 }
 
-func (t *TimeYYYYMMDD) UnmarshalJSON(data []byte) error {
+func (t *Date) UnmarshalJSON(data []byte) error {
 	if string(data) == "null" {
 		return nil
 	}
 	var err error
-	t.Time, err = time.Parse(`"`+TimeFormatYYYYMMDD+`"`, string(data))
+	t.Time, err = time.Parse(`"`+DateFormat+`"`, string(data))
 	return err
 }
 
-func (t *TimeYYYYMMDD) UnmarshalText(data []byte) error {
+func (t *Date) UnmarshalText(data []byte) error {
 	var err error
-	t.Time, err = time.Parse(TimeFormatYYYYMMDD, string(data))
+	t.Time, err = time.Parse(DateFormat, string(data))
 	return err
 }
 
-func (t TimeYYYYMMDD) String() string {
-	return t.Format(TimeFormatYYYYMMDD)
+func (t Date) String() string {
+	return t.Format(DateFormat)
 }
 
-type TimeYYYYMMDDHHmmSS struct {
+type Datetime struct {
 	time.Time
 }
 
-func (t *TimeYYYYMMDDHHmmSS) UnmarshalJSON(data []byte) error {
+func (t *Datetime) UnmarshalJSON(data []byte) error {
 	if string(data) == "null" {
 		return nil
 	}
 	var err error
-	t.Time, err = time.Parse(`"`+TimeFormatYYYYMMDDHHmmSS+`"`, string(data))
+	t.Time, err = time.Parse(`"`+DatetimeFormat+`"`, string(data))
 	return err
 }
 
-func (t *TimeYYYYMMDDHHmmSS) UnmarshalText(data []byte) error {
+func (t *Datetime) UnmarshalText(data []byte) error {
 	var err error
-	t.Time, err = time.Parse(TimeFormatYYYYMMDDHHmmSS, string(data))
+	t.Time, err = time.Parse(DatetimeFormat, string(data))
 	return err
 }
 
-func (t TimeYYYYMMDDHHmmSS) String() string {
-	return t.Format(TimeFormatYYYYMMDDHHmmSS)
+func (t Datetime) String() string {
+	return t.Format(DatetimeFormat)
 }
 
 type MarketingConsent int8
