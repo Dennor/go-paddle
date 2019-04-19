@@ -40,7 +40,7 @@ func subscriptionPaymentFailedData() struct {
 	spf := PaymentFailed{
 		AlertName:          d.M["alert_name"],
 		Amount:             test.DecimalFromString(d.M["amount"]),
-		CancelUrl:          d.M["cancel_url"],
+		CancelURL:          d.M["cancel_url"],
 		CheckoutID:         d.M["checkout_id"],
 		Currency:           d.M["currency"],
 		Email:              d.M["email"],

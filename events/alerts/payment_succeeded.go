@@ -36,7 +36,7 @@ type PaymentSucceeded struct {
 	ProductID         int                     `json:"product_id,string"`
 	ProductName       string                  `json:"product_name"`
 	Quantity          int                     `json:"quantity,string"`
-	ReceiptUrl        string                  `json:"receipt_url"`
+	ReceiptURL        string                  `json:"receipt_url"`
 	SaleGross         *decimal.Decimal        `json:"sale_gross,string"`
 	UsedPriceOverride bool                    `json:"used_price_override,string"`
 	PSignature        string                  `json:"p_signature" php:"-"`

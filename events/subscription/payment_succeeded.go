@@ -35,7 +35,7 @@ type PaymentSucceeded struct {
 	PaymentTax         *decimal.Decimal        `json:"payment_tax,string"`
 	PlanName           string                  `json:"plan_name"`
 	Quantity           int                     `json:"quantity,string"`
-	ReceiptUrl         string                  `json:"receipt_url"`
+	ReceiptURL         string                  `json:"receipt_url"`
 	SaleGross          *decimal.Decimal        `json:"sale_gross,string"`
 	Status             string                  `json:"status"`
 	SubscriptionID     int                     `json:"subscription_id,string"`

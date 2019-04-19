@@ -12,7 +12,7 @@ const PaymentFailedAlertName = "subscription_payment_failed"
 type PaymentFailed struct {
 	AlertName          string                  `json:"alert_name"`
 	Amount             *decimal.Decimal        `json:"amount,string"`
-	CancelUrl          string                  `json:"cancel_url"`
+	CancelURL          string                  `json:"cancel_url"`
 	CheckoutID         string                  `json:"checkout_id"`
 	Currency           string                  `json:"currency"`
 	Email              string                  `json:"email"`

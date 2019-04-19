@@ -43,7 +43,7 @@ func subscriptionUpdatedData() struct {
 	mc.UnmarshalText([]byte(d.M["marketing_consent"]))
 	su := Updated{
 		AlertName:             d.M["alert_name"],
-		CancelUrl:             d.M["cancel_url"],
+		CancelURL:             d.M["cancel_url"],
 		CheckoutID:            d.M["checkout_id"],
 		Email:                 d.M["email"],
 		EventTime:             &types.Datetime{test.ParseTime(types.DatetimeFormat, d.M["event_time"])},

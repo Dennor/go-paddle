@@ -78,7 +78,7 @@ func subscriptionPaymentSucceededData() struct {
 		PaymentTax:         test.DecimalFromString(d.M["payment_tax"]),
 		PlanName:           d.M["plan_name"],
 		Quantity:           int(test.IntFromString(d.M["quantity"])),
-		ReceiptUrl:         d.M["receipt_url"],
+		ReceiptURL:         d.M["receipt_url"],
 		SaleGross:          test.DecimalFromString(d.M["sale_gross"]),
 		Status:             d.M["status"],
 		SubscriptionID:     int(test.IntFromString(d.M["subscription_id"])),

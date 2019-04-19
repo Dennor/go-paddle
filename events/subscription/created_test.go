@@ -37,7 +37,7 @@ func subscriptionCreatedData() struct {
 	mc.UnmarshalText([]byte(d.M["marketing_consent"]))
 	sc := Created{
 		AlertName:          d.M["alert_name"],
-		CancelUrl:          d.M["cancel_url"],
+		CancelURL:          d.M["cancel_url"],
 		CheckoutID:         d.M["checkout_id"],
 		Currency:           d.M["currency"],
 		Email:              d.M["email"],

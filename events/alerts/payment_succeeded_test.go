@@ -74,7 +74,7 @@ func subscriptionPaymentSucceededData() struct {
 		ProductID:         5,
 		ProductName:       d.M["product_name"],
 		Quantity:          int(test.IntFromString(d.M["quantity"])),
-		ReceiptUrl:        d.M["receipt_url"],
+		ReceiptURL:        d.M["receipt_url"],
 		SaleGross:         test.DecimalFromString(d.M["sale_gross"]),
 		UsedPriceOverride: test.BoolFromString(d.M["used_price_override"]),
 		PSignature:        d.M["p_signature"],

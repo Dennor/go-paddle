@@ -11,7 +11,7 @@ const UpdatedAlertName = "subscription_updated"
 // Updated refer to https://paddle.com/docs/subscriptions-event-reference/#subscription_updated
 type Updated struct {
 	AlertName             string                  `json:"alert_name"`
-	CancelUrl             string                  `json:"cancel_url"`
+	CancelURL             string                  `json:"cancel_url"`
 	CheckoutID            string                  `json:"checkout_id"`
 	Email                 string                  `json:"email"`
 	EventTime             *types.Datetime         `json:"event_time,string"`

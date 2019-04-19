@@ -11,7 +11,7 @@ const CreatedAlertName = "subscription_created"
 // Created refer to https://paddle.com/docs/subscriptions-event-reference/#subscription_created
 type Created struct {
 	AlertName          string                  `json:"alert_name"`
-	CancelUrl          string                  `json:"cancel_url"`
+	CancelURL          string                  `json:"cancel_url"`
 	CheckoutID         string                  `json:"checkout_id"`
 	Currency           string                  `json:"currency"`
 	Email              string                  `json:"email"`
