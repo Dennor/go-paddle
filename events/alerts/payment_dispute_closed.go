@@ -19,6 +19,7 @@ type PaymentDisputeClosed struct {
 	FeeUsd           *decimal.Decimal          `json:"fee_usd,string"`
 	MarketingConsent types.MarketingConsent    `json:"marketing_consent,string"`
 	OrderID          int                       `json:"order_id,string"`
+	Passthrough      string                    `json:"passthrough"`
 	Status           string                    `json:"status"`
 	PSignature       string                    `json:"p_signature" php:"-"`
 }

@@ -26,8 +26,10 @@ func subscriptionPaymentDisputeCreatedData() struct {
 		"fee_usd":           "4.56",
 		"marketing_consent": "1",
 		"order_id":          "2",
+		"passthrough":       "Example String",
 		"status":            "pending",
 	})
+	mc := types.MarketingConsent(test.IntFromString(d.M["marketing_consent"]))
 	pdc := PaymentDisputeCreated{
 		AlertName:        d.M["alert_name"],
 		Amount:           test.DecimalFromString(d.M["amount"]),
@@ -36,8 +38,9 @@ func subscriptionPaymentDisputeCreatedData() struct {
 		Email:            d.M["email"],
 		EventTime:        &types.TimeYYYYMMDDHHmmSS{test.ParseTime(types.TimeFormatYYYYMMDDHHmmSS, d.M["event_time"])},
 		FeeUsd:           test.DecimalFromString(d.M["fee_usd"]),
-		MarketingConsent: types.MarketingConsent(test.IntFromString(d.M["marketing_consent"])),
+		MarketingConsent: &mc,
 		OrderID:          int(test.IntFromString(d.M["order_id"])),
+		Passthrough:      d.M["passthrough"],
 		Status:           d.M["status"],
 		PSignature:       d.M["p_signature"],
 	}

@@ -26,6 +26,7 @@ func subscriptionPaymentDisputeClosedData() struct {
 		"fee_usd":           "4.56",
 		"marketing_consent": "1",
 		"order_id":          "2",
+		"passthrough":       "Example String",
 		"status":            "closed",
 	})
 	pdc := PaymentDisputeClosed{
@@ -38,6 +39,7 @@ func subscriptionPaymentDisputeClosedData() struct {
 		FeeUsd:           test.DecimalFromString(d.M["fee_usd"]),
 		MarketingConsent: types.MarketingConsent(test.IntFromString(d.M["marketing_consent"])),
 		OrderID:          int(test.IntFromString(d.M["order_id"])),
+		Passthrough:      "Example String",
 		Status:           d.M["status"],
 		PSignature:       d.M["p_signature"],
 	}

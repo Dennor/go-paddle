@@ -33,6 +33,7 @@ func subscriptionCreatedData() struct {
 		"unit_price":           "49.99",
 		"update_url":           "https://checkout.paddle.com/subscription/update?user=4&subscription=2&hash=a0aef1af98b11ef5d220751a77d0eda187f836d4",
 	})
+	mc := types.MarketingConsent(test.IntFromString(d.M["marketing_consent"]))
 	sc := Created{
 		AlertName:          d.M["alert_name"],
 		CancelUrl:          d.M["cancel_url"],
@@ -40,7 +41,7 @@ func subscriptionCreatedData() struct {
 		Currency:           d.M["currency"],
 		Email:              d.M["email"],
 		EventTime:          &types.TimeYYYYMMDDHHmmSS{test.ParseTime(types.TimeFormatYYYYMMDDHHmmSS, d.M["event_time"])},
-		MarketingConsent:   types.MarketingConsent(test.IntFromString(d.M["marketing_consent"])),
+		MarketingConsent:   &mc,
 		NextBillDate:       &types.TimeYYYYMMDD{test.ParseTime(types.TimeFormatYYYYMMDD, d.M["next_bill_date"])},
 		Passthrough:        d.M["passthrough"],
 		Quantity:           int(test.IntFromString(d.M["quantity"])),

@@ -50,6 +50,7 @@ func subscriptionPaymentSucceededData() struct {
 		"unit_price":           "49.99",
 		"user_id":              "10",
 	})
+	mc := types.MarketingConsent(test.IntFromString(d.M["marketing_consent"]))
 	sps := PaymentSucceeded{
 		AlertName:          d.M["alert_name"],
 		BalanceCurrency:    d.M["balance_currency"],
@@ -68,7 +69,7 @@ func subscriptionPaymentSucceededData() struct {
 		Fee:                test.DecimalFromString(d.M["fee"]),
 		InitialPayment:     int(test.IntFromString(d.M["initial_payment"])),
 		Instalments:        int(test.IntFromString(d.M["instalments"])),
-		MarketingConsent:   types.MarketingConsent(test.IntFromString(d.M["marketing_consent"])),
+		MarketingConsent:   &mc,
 		NextBillDate:       &types.TimeYYYYMMDD{test.ParseTime(types.TimeFormatYYYYMMDD, d.M["next_bill_date"])},
 		OrderID:            d.M["order_id"],
 		Passthrough:        d.M["passthrough"],

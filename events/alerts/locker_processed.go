@@ -18,7 +18,7 @@ type LockerProcessed struct {
 	EventTime        *types.TimeYYYYMMDDHHmmSS `json:"event_time,string"`
 	Instructions     string                    `json:"instructions"`
 	License          string                    `json:"license"`
-	MarketingConsent types.MarketingConsent    `json:"marketing_consent,string"`
+	MarketingConsent *types.MarketingConsent   `json:"marketing_consent,string"`
 	OrderID          int                       `json:"order_id,string"`
 	ProductID        int                       `json:"product_id,string"`
 	Quantity         int                       `json:"quantity,string"`

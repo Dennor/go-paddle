@@ -31,6 +31,7 @@ func lockerProcessedData() struct {
 		"product_id":        "1",
 		"quantity":          "1",
 	})
+	mc := types.MarketingConsent(test.IntFromString(d.M["marketing_consent"]))
 	lp := LockerProcessed{
 		AlertName:        d.M["alert_name"],
 		CheckoutID:       d.M["checkout_id"],
@@ -41,7 +42,7 @@ func lockerProcessedData() struct {
 		EventTime:        &types.TimeYYYYMMDDHHmmSS{test.ParseTime(types.TimeFormatYYYYMMDDHHmmSS, d.M["event_time"])},
 		Instructions:     d.M["instructions"],
 		License:          d.M["license"],
-		MarketingConsent: types.MarketingConsent(test.IntFromString(d.M["marketing_consent"])),
+		MarketingConsent: &mc,
 		OrderID:          int(test.IntFromString(d.M["order_id"])),
 		ProductID:        int(test.IntFromString(d.M["product_id"])),
 		Quantity:         int(test.IntFromString(d.M["quantity"])),

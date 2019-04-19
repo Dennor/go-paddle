@@ -17,7 +17,7 @@ type HighRiskTransactionCreated struct {
 	CustomerEmailAddress string                    `json:"customer_email_address"`
 	CustomerUserID       int                       `json:"customer_user_id,string"`
 	EventTime            *types.TimeYYYYMMDDHHmmSS `json:"event_time,string"`
-	MarketingConsent     types.MarketingConsent    `json:"marketing_consent,string"`
+	MarketingConsent     *types.MarketingConsent   `json:"marketing_consent,string"`
 	Passthrough          string                    `json:"passthrough"`
 	ProductID            int                       `json:"product_id,string"`
 	RiskScore            *decimal.Decimal          `json:"risk_score,string"`

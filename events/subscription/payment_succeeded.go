@@ -27,7 +27,7 @@ type PaymentSucceeded struct {
 	Fee                *decimal.Decimal          `json:"fee,string"`
 	InitialPayment     int                       `json:"initial_payment,string"`
 	Instalments        int                       `json:"instalments,string"`
-	MarketingConsent   types.MarketingConsent    `json:"marketing_consent,string"`
+	MarketingConsent   *types.MarketingConsent   `json:"marketing_consent,string"`
 	NextBillDate       *types.TimeYYYYMMDD       `json:"next_bill_date,string"`
 	OrderID            string                    `json:"order_id"`
 	Passthrough        string                    `json:"passthrough"`

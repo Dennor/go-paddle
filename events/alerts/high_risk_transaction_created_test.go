@@ -30,6 +30,7 @@ func subscriptionHighRiskTransactionCreatedData() struct {
 		"risk_score":             "99.99",
 		"status":                 "pending",
 	})
+	mc := types.MarketingConsent(test.IntFromString(d.M["marketing_consent"]))
 	hrtc := HighRiskTransactionCreated{
 		AlertName:            d.M["alert_name"],
 		CaseID:               int(test.IntFromString(d.M["case_id"])),
@@ -38,7 +39,7 @@ func subscriptionHighRiskTransactionCreatedData() struct {
 		CustomerEmailAddress: d.M["customer_email_address"],
 		CustomerUserID:       int(test.IntFromString(d.M["customer_user_id"])),
 		EventTime:            &types.TimeYYYYMMDDHHmmSS{test.ParseTime(types.TimeFormatYYYYMMDDHHmmSS, d.M["event_time"])},
-		MarketingConsent:     types.MarketingConsent(test.IntFromString(d.M["marketing_consent"])),
+		MarketingConsent:     &mc,
 		Passthrough:          d.M["passthrough"],
 		ProductID:            int(test.IntFromString(d.M["product_id"])),
 		RiskScore:            test.DecimalFromString(d.M["risk_score"]),

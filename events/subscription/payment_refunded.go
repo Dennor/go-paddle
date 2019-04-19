@@ -26,13 +26,13 @@ type PaymentRefunded struct {
 	GrossRefund             *decimal.Decimal          `json:"gross_refund,string"`
 	InitialPayment          int                       `json:"initial_payment,string"`
 	Instalments             int                       `json:"instalments,string"`
-	MarketingConsent        types.MarketingConsent    `json:"marketing_consent,string"`
+	MarketingConsent        *types.MarketingConsent   `json:"marketing_consent,string"`
 	OrderID                 string                    `json:"order_id"`
 	Passthrough             string                    `json:"passthrough"`
 	Quantity                int                       `json:"quantity,string"`
 	RefundType              string                    `json:"refund_type"`
 	SubscriptionID          int                       `json:"subscription_id,string"`
-	SubscriptionPlanID      int                       `json:"subscription_plan_id,string"`
+	SubscriptionPaymentID   int                       `json:"subscription_payment_id,string"`
 	TaxRefund               *decimal.Decimal          `json:"tax_refund,string"`
 	UnitPrice               *decimal.Decimal          `json:"unit_price,string"`
 	UserID                  int                       `json:"user_id,string"`

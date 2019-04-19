@@ -39,11 +39,11 @@ func subscriptionPaymentSucceededData() struct {
 		"passthrough":         "Example String",
 		"payment_method":      "credit card",
 		"payment_tax":         "19.2021",
+		"product_id":          "5",
 		"product_name":        "soap",
 		"quantity":            "1",
 		"receipt_url":         "https://example.org/a=b&c=d",
 		"sale_gross":          "22.2324",
-		"status":              "active",
 		"used_price_override": "true",
 	})
 	ip := net.IPv4(127, 0, 0, 1)
@@ -69,11 +69,11 @@ func subscriptionPaymentSucceededData() struct {
 		Passthrough:       d.M["passthrough"],
 		PaymentMethod:     d.M["payment_method"],
 		PaymentTax:        test.DecimalFromString(d.M["payment_tax"]),
+		ProductID:         5,
 		ProductName:       d.M["product_name"],
 		Quantity:          int(test.IntFromString(d.M["quantity"])),
 		ReceiptUrl:        d.M["receipt_url"],
 		SaleGross:         test.DecimalFromString(d.M["sale_gross"]),
-		Status:            d.M["status"],
 		UsedPriceOverride: test.BoolFromString(d.M["used_price_override"]),
 		PSignature:        d.M["p_signature"],
 	}

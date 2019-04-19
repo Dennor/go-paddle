@@ -18,7 +18,7 @@ type PaymentFailed struct {
 	Email              string                    `json:"email"`
 	EventTime          *types.TimeYYYYMMDDHHmmSS `json:"event_time,string"`
 	HardFailure        *types.PhpBool            `json:"hard_failure,string"`
-	MarketingConsent   types.MarketingConsent    `json:"marketing_consent,string"`
+	MarketingConsent   *types.MarketingConsent   `json:"marketing_consent,string"`
 	NextRetryDate      *types.TimeYYYYMMDD       `json:"next_retry_date,string"`
 	Passthrough        string                    `json:"passthrough"`
 	Quantity           int                       `json:"quantity,string"`
