@@ -28,7 +28,7 @@ type PaymentSucceeded struct {
 	EventTime         *types.TimeYYYYMMDDHHmmSS `json:"event_time,string"`
 	Fee               *decimal.Decimal          `json:"fee,string"`
 	IP                *net.IP                   `json:"ip,string"`
-	MarketingConsent  types.MarketingConsent    `json:"marketing_consent,string"`
+	MarketingConsent  *types.MarketingConsent   `json:"marketing_consent,string"`
 	OrderID           string                    `json:"order_id"`
 	Passthrough       string                    `json:"passthrough"`
 	PaymentMethod     string                    `json:"payment_method"`

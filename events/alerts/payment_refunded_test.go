@@ -38,6 +38,8 @@ func subscriptionPaymentRefundedData() struct {
 		"refund_type":               "full",
 		"tax_refund":                "25.2627",
 	})
+	var mc types.MarketingConsent
+	mc.UnmarshalText([]byte(d.M["marketing_consent"]))
 	spr := PaymentRefunded{
 		AlertName:               d.M["alert_name"],
 		Amount:                  test.DecimalFromString(d.M["amount"]),
@@ -53,7 +55,7 @@ func subscriptionPaymentRefundedData() struct {
 		EventTime:               &types.TimeYYYYMMDDHHmmSS{test.ParseTime(types.TimeFormatYYYYMMDDHHmmSS, d.M["event_time"])},
 		FeeRefund:               test.DecimalFromString(d.M["fee_refund"]),
 		GrossRefund:             test.DecimalFromString(d.M["gross_refund"]),
-		MarketingConsent:        types.MarketingConsent(test.IntFromString(d.M["marketing_consent"])),
+		MarketingConsent:        &mc,
 		OrderID:                 d.M["order_id"],
 		Passthrough:             d.M["passthrough"],
 		Quantity:                int(test.IntFromString(d.M["quantity"])),

@@ -12,9 +12,9 @@ type UpdateAudienceMember struct {
 	AlertName           string                    `json:"alert_name"`
 	EventTime           *types.TimeYYYYMMDDHHmmSS `json:"event_time,string"`
 	NewCustomerEmail    string                    `json:"new_customer_email"`
-	NewMarketingConsent types.MarketingConsent    `json:"new_marketing_consent,string"`
+	NewMarketingConsent *types.MarketingConsent   `json:"new_marketing_consent,string"`
 	OldCustomerEmail    string                    `json:"old_customer_email"`
-	OldMarketingConsent types.MarketingConsent    `json:"old_marketing_consent,string"`
+	OldMarketingConsent *types.MarketingConsent   `json:"old_marketing_consent,string"`
 	Products            *AudienceMemberProducts   `json:"products,string"`
 	Source              string                    `json:"source"`
 	UpdatedAt           *types.TimeYYYYMMDDHHmmSS `json:"updated_at,string"`

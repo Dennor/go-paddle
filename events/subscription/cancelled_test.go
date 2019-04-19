@@ -32,7 +32,8 @@ func subscriptionCancelledData() struct {
 		"unit_price":                  "49.99",
 		"user_id":                     "10",
 	})
-	mc := types.MarketingConsent(test.IntFromString(d.M["marketing_consent"]))
+	var mc types.MarketingConsent
+	mc.UnmarshalText([]byte(d.M["marketing_consent"]))
 	sc := Cancelled{
 		AlertName:                 d.M["alert_name"],
 		CancellationEffectiveDate: &types.TimeYYYYMMDD{test.ParseTime(types.TimeFormatYYYYMMDD, d.M["cancellation_effective_date"])},

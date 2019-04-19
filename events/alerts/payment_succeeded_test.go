@@ -47,6 +47,8 @@ func subscriptionPaymentSucceededData() struct {
 		"used_price_override": "true",
 	})
 	ip := net.IPv4(127, 0, 0, 1)
+	var mc types.MarketingConsent
+	mc.UnmarshalText([]byte(d.M["marketing_consent"]))
 	sps := PaymentSucceeded{
 		AlertName:         d.M["alert_name"],
 		BalanceCurrency:   d.M["balance_currency"],
@@ -64,7 +66,7 @@ func subscriptionPaymentSucceededData() struct {
 		EventTime:         &types.TimeYYYYMMDDHHmmSS{test.ParseTime(types.TimeFormatYYYYMMDDHHmmSS, d.M["event_time"])},
 		Fee:               test.DecimalFromString(d.M["fee"]),
 		IP:                &ip,
-		MarketingConsent:  types.MarketingConsent(test.IntFromString(d.M["marketing_consent"])),
+		MarketingConsent:  &mc,
 		OrderID:           d.M["order_id"],
 		Passthrough:       d.M["passthrough"],
 		PaymentMethod:     d.M["payment_method"],

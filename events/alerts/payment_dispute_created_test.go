@@ -29,7 +29,8 @@ func subscriptionPaymentDisputeCreatedData() struct {
 		"passthrough":       "Example String",
 		"status":            "pending",
 	})
-	mc := types.MarketingConsent(test.IntFromString(d.M["marketing_consent"]))
+	var mc types.MarketingConsent
+	mc.UnmarshalText([]byte(d.M["marketing_consent"]))
 	pdc := PaymentDisputeCreated{
 		AlertName:        d.M["alert_name"],
 		Amount:           test.DecimalFromString(d.M["amount"]),

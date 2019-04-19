@@ -44,7 +44,8 @@ func subscriptionPaymentRefundedData() struct {
 		"unit_price":                "49.99",
 		"user_id":                   "10",
 	})
-	mc := types.MarketingConsent(test.IntFromString(d.M["marketing_consent"]))
+	var mc types.MarketingConsent
+	mc.UnmarshalText([]byte(d.M["marketing_consent"]))
 	spr := PaymentRefunded{
 		AlertName:               d.M["alert_name"],
 		Amount:                  test.DecimalFromString(d.M["amount"]),

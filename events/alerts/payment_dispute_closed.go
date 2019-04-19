@@ -17,7 +17,7 @@ type PaymentDisputeClosed struct {
 	Email            string                    `json:"email"`
 	EventTime        *types.TimeYYYYMMDDHHmmSS `json:"event_time,string"`
 	FeeUsd           *decimal.Decimal          `json:"fee_usd,string"`
-	MarketingConsent types.MarketingConsent    `json:"marketing_consent,string"`
+	MarketingConsent *types.MarketingConsent   `json:"marketing_consent,string"`
 	OrderID          int                       `json:"order_id,string"`
 	Passthrough      string                    `json:"passthrough"`
 	Status           string                    `json:"status"`

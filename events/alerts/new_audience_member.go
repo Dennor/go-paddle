@@ -62,7 +62,7 @@ type NewAudienceMember struct {
 	CreatedAt        *types.TimeYYYYMMDDHHmmSS `json:"created_at,string"`
 	Email            string                    `json:"email"`
 	EventTime        *types.TimeYYYYMMDDHHmmSS `json:"event_time,string"`
-	MarketingConsent types.MarketingConsent    `json:"marketing_consent,string"`
+	MarketingConsent *types.MarketingConsent   `json:"marketing_consent,string"`
 	Products         *AudienceMemberProducts   `json:"products,string"`
 	Source           string                    `json:"source"`
 	Subscribed       int                       `json:"subscribed,string"`

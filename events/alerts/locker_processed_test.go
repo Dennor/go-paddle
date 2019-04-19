@@ -31,7 +31,8 @@ func lockerProcessedData() struct {
 		"product_id":        "1",
 		"quantity":          "1",
 	})
-	mc := types.MarketingConsent(test.IntFromString(d.M["marketing_consent"]))
+	var mc types.MarketingConsent
+	mc.UnmarshalText([]byte(d.M["marketing_consent"]))
 	lp := LockerProcessed{
 		AlertName:        d.M["alert_name"],
 		CheckoutID:       d.M["checkout_id"],

@@ -30,7 +30,8 @@ func subscriptionHighRiskTransactionUpdatedData() struct {
 		"risk_score":             "99.99",
 		"status":                 "pending",
 	})
-	mc := types.MarketingConsent(test.IntFromString(d.M["marketing_consent"]))
+	var mc types.MarketingConsent
+	mc.UnmarshalText([]byte(d.M["marketing_consent"]))
 	hrtu := HighRiskTransactionUpdated{
 		AlertName:            d.M["alert_name"],
 		CaseID:               int(test.IntFromString(d.M["case_id"])),

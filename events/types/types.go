@@ -1,6 +1,8 @@
 package types
 
-import "time"
+import (
+	"time"
+)
 
 const (
 	TimeFormatYYYYMMDD       = "2006-01-02"
@@ -53,12 +55,48 @@ func (t TimeYYYYMMDDHHmmSS) String() string {
 	return t.Format(TimeFormatYYYYMMDDHHmmSS)
 }
 
-type MarketingConsent uint8
+type MarketingConsent int8
 
+const abc = 1
 const (
+	_                        = iota
 	REFUSED MarketingConsent = iota
 	GRANTED
 )
+
+func (m *MarketingConsent) UnmarshalText(data []byte) error {
+	if len(data) != 1 {
+		*m = MarketingConsent(0)
+		return nil
+	}
+	switch data[0] {
+	case '0':
+		*m = REFUSED
+	case '1':
+		*m = GRANTED
+	default:
+		*m = MarketingConsent(0)
+	}
+	return nil
+}
+
+func (m *MarketingConsent) UnmarshalJSON(data []byte) error {
+	return m.UnmarshalText(data)
+}
+
+func (m MarketingConsent) MarshalText() ([]byte, error) {
+	return []byte(m.String()), nil
+}
+
+func (m MarketingConsent) String() string {
+	switch m {
+	case REFUSED:
+		return "0"
+	case GRANTED:
+		return "1"
+	}
+	return ""
+}
 
 type PhpBool bool
 

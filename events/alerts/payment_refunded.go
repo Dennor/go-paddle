@@ -24,7 +24,7 @@ type PaymentRefunded struct {
 	EventTime               *types.TimeYYYYMMDDHHmmSS `json:"event_time,string"`
 	FeeRefund               *decimal.Decimal          `json:"fee_refund,string"`
 	GrossRefund             *decimal.Decimal          `json:"gross_refund,string"`
-	MarketingConsent        types.MarketingConsent    `json:"marketing_consent,string"`
+	MarketingConsent        *types.MarketingConsent   `json:"marketing_consent,string"`
 	OrderID                 string                    `json:"order_id"`
 	Passthrough             string                    `json:"passthrough"`
 	Quantity                int                       `json:"quantity,string"`

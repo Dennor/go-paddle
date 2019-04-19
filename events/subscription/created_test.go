@@ -33,7 +33,8 @@ func subscriptionCreatedData() struct {
 		"unit_price":           "49.99",
 		"update_url":           "https://checkout.paddle.com/subscription/update?user=4&subscription=2&hash=a0aef1af98b11ef5d220751a77d0eda187f836d4",
 	})
-	mc := types.MarketingConsent(test.IntFromString(d.M["marketing_consent"]))
+	var mc types.MarketingConsent
+	mc.UnmarshalText([]byte(d.M["marketing_consent"]))
 	sc := Created{
 		AlertName:          d.M["alert_name"],
 		CancelUrl:          d.M["cancel_url"],

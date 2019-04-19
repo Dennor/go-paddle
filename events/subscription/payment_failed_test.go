@@ -35,7 +35,8 @@ func subscriptionPaymentFailedData() struct {
 		"update_url":           "https://checkout.paddle.com/subscription/update?user=4&subscription=2&hash=a0aef1af98b11ef5d220751a77d0eda187f836d4",
 	}, map[string]bool{"hard_failure": true})
 	pbool := test.BoolFromString(d.M["hard_failure"])
-	mc := types.MarketingConsent(test.IntFromString(d.M["marketing_consent"]))
+	var mc types.MarketingConsent
+	mc.UnmarshalText([]byte(d.M["marketing_consent"]))
 	spf := PaymentFailed{
 		AlertName:          d.M["alert_name"],
 		Amount:             test.DecimalFromString(d.M["amount"]),
