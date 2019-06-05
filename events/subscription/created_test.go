@@ -17,6 +17,7 @@ func subscriptionCreatedData() struct {
 	sc Created
 } {
 	d := test.Sign(map[string]string{
+		"alert_id":             "1024",
 		"alert_name":           "subscription_created",
 		"cancel_url":           "https://checkout.paddle.com/subscription/cancel?user=5&subscription=4&hash=a4dca832089cc76fc05da732664d971c6a7c8840",
 		"checkout_id":          "1-c8a82616c183ad6-377f00add1",
@@ -36,6 +37,7 @@ func subscriptionCreatedData() struct {
 	var mc types.MarketingConsent
 	mc.UnmarshalText([]byte(d.M["marketing_consent"]))
 	sc := Created{
+		AlertID:            int(test.IntFromString(d.M["alert_id"])),
 		AlertName:          d.M["alert_name"],
 		CancelURL:          d.M["cancel_url"],
 		CheckoutID:         d.M["checkout_id"],
