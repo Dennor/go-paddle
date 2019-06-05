@@ -17,6 +17,7 @@ func subscriptionUpdatedData() struct {
 	su Updated
 } {
 	d := test.Sign(map[string]string{
+		"alert_id":                 "1024",
 		"alert_name":               "subscription_updated",
 		"cancel_url":               "https://checkout.paddle.com/subscription/cancel?user=5&subscription=4&hash=a4dca832089cc76fc05da732664d971c6a7c8840",
 		"checkout_id":              "1-c8a82616c183ad6-377f00add1",
@@ -42,22 +43,23 @@ func subscriptionUpdatedData() struct {
 	var mc types.MarketingConsent
 	mc.UnmarshalText([]byte(d.M["marketing_consent"]))
 	su := Updated{
+		AlertID:               int(test.IntFromString(d.M["alert_id"])),
 		AlertName:             d.M["alert_name"],
 		CancelURL:             d.M["cancel_url"],
 		CheckoutID:            d.M["checkout_id"],
 		Email:                 d.M["email"],
 		EventTime:             &types.Datetime{test.ParseTime(types.DatetimeFormat, d.M["event_time"])},
 		MarketingConsent:      &mc,
-		NewPrice:              test.DecimalFromString(d.M["new_price"]),
+		NewPrice:              test.CurrencyValueFromString(d.M["new_price"]),
 		NewQuantity:           int(test.IntFromString(d.M["new_quantity"])),
-		NewUnitPrice:          test.DecimalFromString(d.M["new_unit_price"]),
+		NewUnitPrice:          test.CurrencyValueFromString(d.M["new_unit_price"]),
 		NextBillDate:          &types.Date{test.ParseTime(types.DateFormat, d.M["next_bill_date"])},
 		OldNextBillDate:       &types.Date{test.ParseTime(types.DateFormat, d.M["old_next_bill_date"])},
-		OldPrice:              test.DecimalFromString(d.M["old_price"]),
+		OldPrice:              test.CurrencyValueFromString(d.M["old_price"]),
 		OldQuantity:           int(test.IntFromString(d.M["old_quantity"])),
 		OldStatus:             d.M["old_status"],
 		OldSubscriptionPlanID: int(test.IntFromString(d.M["old_subscription_plan_id"])),
-		OldUnitPrice:          test.DecimalFromString(d.M["old_unit_price"]),
+		OldUnitPrice:          test.CurrencyValueFromString(d.M["old_unit_price"]),
 		Passthrough:           d.M["passthrough"],
 		Status:                d.M["status"],
 		SubscriptionID:        int(test.IntFromString(d.M["subscription_id"])),
