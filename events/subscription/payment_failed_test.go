@@ -17,6 +17,7 @@ func subscriptionPaymentFailedData() struct {
 	spf PaymentFailed
 } {
 	d := test.Sign(map[string]string{
+		"alert_id":             "1024",
 		"alert_name":           "subscription_payment_failed",
 		"amount":               "1.23",
 		"cancel_url":           "https://checkout.paddle.com/subscription/cancel?user=5&subscription=4&hash=a4dca832089cc76fc05da732664d971c6a7c8840",
@@ -38,8 +39,9 @@ func subscriptionPaymentFailedData() struct {
 	var mc types.MarketingConsent
 	mc.UnmarshalText([]byte(d.M["marketing_consent"]))
 	spf := PaymentFailed{
+		AlertID:            int(test.IntFromString(d.M["alert_id"])),
 		AlertName:          d.M["alert_name"],
-		Amount:             test.DecimalFromString(d.M["amount"]),
+		Amount:             test.CurrencyValueFromString(d.M["amount"]),
 		CancelURL:          d.M["cancel_url"],
 		CheckoutID:         d.M["checkout_id"],
 		Currency:           d.M["currency"],
@@ -53,7 +55,7 @@ func subscriptionPaymentFailedData() struct {
 		Status:             d.M["status"],
 		SubscriptionID:     int(test.IntFromString(d.M["subscription_id"])),
 		SubscriptionPlanID: int(test.IntFromString(d.M["subscription_plan_id"])),
-		UnitPrice:          test.DecimalFromString("49.99"),
+		UnitPrice:          test.CurrencyValueFromString("49.99"),
 		UpdateURL:          d.M["update_url"],
 		PSignature:         d.M["p_signature"],
 	}

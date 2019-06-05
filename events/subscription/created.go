@@ -3,7 +3,6 @@ package subscription
 import (
 	"github.com/dennor/go-paddle/events/types"
 	"github.com/dennor/phpserialize"
-	"github.com/shopspring/decimal"
 )
 
 const CreatedAlertName = "subscription_created"
@@ -24,7 +23,7 @@ type Created struct {
 	Status             string                  `json:"status"`
 	SubscriptionID     int                     `json:"subscription_id,string"`
 	SubscriptionPlanID int                     `json:"subscription_plan_id,string"`
-	UnitPrice          *decimal.Decimal        `json:"unit_price,string"`
+	UnitPrice          *types.CurrencyValue    `json:"unit_price,string"`
 	UpdateURL          string                  `json:"update_url"`
 	PSignature         string                  `json:"p_signature" php:"-"`
 }

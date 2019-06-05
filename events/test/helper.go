@@ -13,6 +13,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/dennor/go-paddle/events/types"
 	"github.com/shopspring/decimal"
 )
 
@@ -143,6 +144,15 @@ func DecimalFromString(s string) *decimal.Decimal {
 		panic(err)
 	}
 	return &d
+}
+
+func CurrencyValueFromString(s string) *types.CurrencyValue {
+	var cv types.CurrencyValue
+	err := cv.UnmarshalText([]byte(s))
+	if err != nil {
+		panic(err)
+	}
+	return &cv
 }
 
 func IntFromString(s string) int64 {

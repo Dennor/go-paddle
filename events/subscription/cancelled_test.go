@@ -17,6 +17,7 @@ func subscriptionCancelledData() struct {
 	sc Cancelled
 } {
 	d := test.Sign(map[string]string{
+		"alert_id":                    "1024",
 		"alert_name":                  "subscription_cancelled",
 		"cancellation_effective_date": "2019-05-14",
 		"checkout_id":                 "1-c8a82616c183ad6-377f00add1",
@@ -35,6 +36,7 @@ func subscriptionCancelledData() struct {
 	var mc types.MarketingConsent
 	mc.UnmarshalText([]byte(d.M["marketing_consent"]))
 	sc := Cancelled{
+		AlertID:                   int(test.IntFromString(d.M["alert_id"])),
 		AlertName:                 d.M["alert_name"],
 		CancellationEffectiveDate: &types.Date{test.ParseTime(types.DateFormat, d.M["cancellation_effective_date"])},
 		CheckoutID:                d.M["checkout_id"],
@@ -47,7 +49,7 @@ func subscriptionCancelledData() struct {
 		Status:                    d.M["status"],
 		SubscriptionID:            int(test.IntFromString(d.M["subscription_id"])),
 		SubscriptionPlanID:        int(test.IntFromString(d.M["subscription_plan_id"])),
-		UnitPrice:                 test.DecimalFromString(d.M["unit_price"]),
+		UnitPrice:                 test.CurrencyValueFromString(d.M["unit_price"]),
 		UserID:                    int(test.IntFromString(d.M["user_id"])),
 		PSignature:                d.M["p_signature"],
 	}

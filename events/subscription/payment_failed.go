@@ -3,15 +3,15 @@ package subscription
 import (
 	"github.com/dennor/go-paddle/events/types"
 	"github.com/dennor/phpserialize"
-	"github.com/shopspring/decimal"
 )
 
 const PaymentFailedAlertName = "subscription_payment_failed"
 
 // PaymentFailed refer to https://paddle.com/docs/subscriptions-event-reference/#subscription_payment_failed
 type PaymentFailed struct {
+	AlertID            int                     `json:"alert_id,string"`
 	AlertName          string                  `json:"alert_name"`
-	Amount             *decimal.Decimal        `json:"amount,string"`
+	Amount             *types.CurrencyValue    `json:"amount,string"`
 	CancelURL          string                  `json:"cancel_url"`
 	CheckoutID         string                  `json:"checkout_id"`
 	Currency           string                  `json:"currency"`
@@ -25,7 +25,7 @@ type PaymentFailed struct {
 	Status             string                  `json:"status"`
 	SubscriptionID     int                     `json:"subscription_id,string"`
 	SubscriptionPlanID int                     `json:"subscription_plan_id,string"`
-	UnitPrice          *decimal.Decimal        `json:"unit_price,string"`
+	UnitPrice          *types.CurrencyValue    `json:"unit_price,string"`
 	UpdateURL          string                  `json:"update_url"`
 	PSignature         string                  `json:"p_signature" php:"-"`
 }

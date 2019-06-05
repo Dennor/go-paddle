@@ -51,7 +51,7 @@ func subscriptionCreatedData() struct {
 		Status:             d.M["status"],
 		SubscriptionID:     int(test.IntFromString(d.M["subscription_id"])),
 		SubscriptionPlanID: int(test.IntFromString(d.M["subscription_plan_id"])),
-		UnitPrice:          test.DecimalFromString("49.99"),
+		UnitPrice:          test.CurrencyValueFromString("49.99"),
 		UpdateURL:          d.M["update_url"],
 		PSignature:         d.M["p_signature"],
 	}

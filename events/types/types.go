@@ -1,7 +1,11 @@
 package types
 
 import (
+	"bytes"
+	"encoding/json"
 	"time"
+
+	"github.com/shopspring/decimal"
 )
 
 const (
@@ -110,4 +114,33 @@ func (b *PhpBool) String() string {
 		return phpTrue
 	}
 	return phpFalse
+}
+
+type CurrencyValue struct {
+	decimal.Decimal
+	fixed int32
+}
+
+func (c *CurrencyValue) String() string {
+	return c.StringFixed(c.fixed)
+}
+
+func (c *CurrencyValue) MarshalText() ([]byte, error) {
+	return []byte(c.String()), nil
+}
+
+func (c *CurrencyValue) UnmarshalJSON(b []byte) error {
+	var s string
+	if err := json.Unmarshal(b, &s); err != nil {
+		return err
+	}
+	return c.UnmarshalText([]byte(s))
+}
+
+func (c *CurrencyValue) UnmarshalText(b []byte) error {
+	fixed := bytes.LastIndexByte(b, byte('.'))
+	if fixed > 0 {
+		c.fixed = int32(len(b[fixed+1:]))
+	}
+	return c.Decimal.UnmarshalText(b)
 }

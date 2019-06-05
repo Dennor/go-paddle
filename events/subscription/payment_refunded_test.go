@@ -17,6 +17,7 @@ func subscriptionPaymentRefundedData() struct {
 	spr PaymentRefunded
 } {
 	d := test.Sign(map[string]string{
+		"alert_id":                  "1024",
 		"alert_name":                "subscription_payment_succeeded",
 		"amount":                    "1.23",
 		"balance_currency":          "PLN",
@@ -47,20 +48,21 @@ func subscriptionPaymentRefundedData() struct {
 	var mc types.MarketingConsent
 	mc.UnmarshalText([]byte(d.M["marketing_consent"]))
 	spr := PaymentRefunded{
+		AlertID:                 int(test.IntFromString(d.M["alert_id"])),
 		AlertName:               d.M["alert_name"],
-		Amount:                  test.DecimalFromString(d.M["amount"]),
+		Amount:                  test.CurrencyValueFromString(d.M["amount"]),
 		BalanceCurrency:         d.M["balance_currency"],
-		BalanceEarningsDecrease: test.DecimalFromString(d.M["balance_earnings_decrease"]),
-		BalanceFeeRefund:        test.DecimalFromString(d.M["balance_fee_refund"]),
-		BalanceGrossRefund:      test.DecimalFromString(d.M["balance_gross_refund"]),
-		BalanceTaxRefund:        test.DecimalFromString(d.M["balance_tax_refund"]),
+		BalanceEarningsDecrease: test.CurrencyValueFromString(d.M["balance_earnings_decrease"]),
+		BalanceFeeRefund:        test.CurrencyValueFromString(d.M["balance_fee_refund"]),
+		BalanceGrossRefund:      test.CurrencyValueFromString(d.M["balance_gross_refund"]),
+		BalanceTaxRefund:        test.CurrencyValueFromString(d.M["balance_tax_refund"]),
 		CheckoutID:              d.M["checkout_id"],
 		Currency:                d.M["currency"],
-		EarningsDecrease:        test.DecimalFromString(d.M["earnings_decrease"]),
+		EarningsDecrease:        test.CurrencyValueFromString(d.M["earnings_decrease"]),
 		Email:                   d.M["email"],
 		EventTime:               &types.Datetime{test.ParseTime(types.DatetimeFormat, d.M["event_time"])},
-		FeeRefund:               test.DecimalFromString(d.M["fee_refund"]),
-		GrossRefund:             test.DecimalFromString(d.M["gross_refund"]),
+		FeeRefund:               test.CurrencyValueFromString(d.M["fee_refund"]),
+		GrossRefund:             test.CurrencyValueFromString(d.M["gross_refund"]),
 		InitialPayment:          int(test.IntFromString(d.M["initial_payment"])),
 		Instalments:             int(test.IntFromString(d.M["instalments"])),
 		MarketingConsent:        &mc,
@@ -70,8 +72,8 @@ func subscriptionPaymentRefundedData() struct {
 		RefundType:              d.M["refund_type"],
 		SubscriptionID:          int(test.IntFromString(d.M["subscription_id"])),
 		SubscriptionPaymentID:   int(test.IntFromString(d.M["subscription_payment_id"])),
-		TaxRefund:               test.DecimalFromString(d.M["tax_refund"]),
-		UnitPrice:               test.DecimalFromString(d.M["unit_price"]),
+		TaxRefund:               test.CurrencyValueFromString(d.M["tax_refund"]),
+		UnitPrice:               test.CurrencyValueFromString(d.M["unit_price"]),
 		UserID:                  int(test.IntFromString(d.M["user_id"])),
 		PSignature:              d.M["p_signature"],
 	}

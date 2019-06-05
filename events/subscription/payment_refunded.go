@@ -3,27 +3,27 @@ package subscription
 import (
 	"github.com/dennor/go-paddle/events/types"
 	"github.com/dennor/phpserialize"
-	"github.com/shopspring/decimal"
 )
 
 const PaymentRefundedAlertName = "subscription_payment_refunded"
 
 // PaymentRefunded refer to https://paddle.com/docs/subscriptions-event-reference/#subscription_payment_refunded
 type PaymentRefunded struct {
+	AlertID                 int                     `json:"alert_id,string"`
 	AlertName               string                  `json:"alert_name"`
-	Amount                  *decimal.Decimal        `json:"amount,string"`
+	Amount                  *types.CurrencyValue    `json:"amount,string"`
 	BalanceCurrency         string                  `json:"balance_currency"`
-	BalanceEarningsDecrease *decimal.Decimal        `json:"balance_earnings_decrease,string"`
-	BalanceFeeRefund        *decimal.Decimal        `json:"balance_fee_refund,string"`
-	BalanceGrossRefund      *decimal.Decimal        `json:"balance_gross_refund,string"`
-	BalanceTaxRefund        *decimal.Decimal        `json:"balance_tax_refund,string"`
+	BalanceEarningsDecrease *types.CurrencyValue    `json:"balance_earnings_decrease,string"`
+	BalanceFeeRefund        *types.CurrencyValue    `json:"balance_fee_refund,string"`
+	BalanceGrossRefund      *types.CurrencyValue    `json:"balance_gross_refund,string"`
+	BalanceTaxRefund        *types.CurrencyValue    `json:"balance_tax_refund,string"`
 	CheckoutID              string                  `json:"checkout_id"`
 	Currency                string                  `json:"currency"`
-	EarningsDecrease        *decimal.Decimal        `json:"earnings_decrease,string"`
+	EarningsDecrease        *types.CurrencyValue    `json:"earnings_decrease,string"`
 	Email                   string                  `json:"email"`
 	EventTime               *types.Datetime         `json:"event_time,string"`
-	FeeRefund               *decimal.Decimal        `json:"fee_refund,string"`
-	GrossRefund             *decimal.Decimal        `json:"gross_refund,string"`
+	FeeRefund               *types.CurrencyValue    `json:"fee_refund,string"`
+	GrossRefund             *types.CurrencyValue    `json:"gross_refund,string"`
 	InitialPayment          int                     `json:"initial_payment,string"`
 	Instalments             int                     `json:"instalments,string"`
 	MarketingConsent        *types.MarketingConsent `json:"marketing_consent,string"`
@@ -33,8 +33,8 @@ type PaymentRefunded struct {
 	RefundType              string                  `json:"refund_type"`
 	SubscriptionID          int                     `json:"subscription_id,string"`
 	SubscriptionPaymentID   int                     `json:"subscription_payment_id,string"`
-	TaxRefund               *decimal.Decimal        `json:"tax_refund,string"`
-	UnitPrice               *decimal.Decimal        `json:"unit_price,string"`
+	TaxRefund               *types.CurrencyValue    `json:"tax_refund,string"`
+	UnitPrice               *types.CurrencyValue    `json:"unit_price,string"`
 	UserID                  int                     `json:"user_id,string"`
 	PSignature              string                  `json:"p_signature" php:"-"`
 }
