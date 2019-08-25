@@ -15,7 +15,7 @@ type Updated struct {
 	CheckoutID            string                  `json:"checkout_id"`
 	Email                 string                  `json:"email"`
 	EventTime             *types.Datetime         `json:"event_time,string"`
-	MarketingConsent      *types.MarketingConsent `json:"marketing_consent,string"`
+	MarketingConsent      *types.MarketingConsent `json:"marketing_consent"`
 	NewPrice              *types.CurrencyValue    `json:"new_price,string"`
 	NewQuantity           int                     `json:"new_quantity,string"`
 	NewUnitPrice          *types.CurrencyValue    `json:"new_unit_price,string"`

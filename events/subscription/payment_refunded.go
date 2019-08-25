@@ -24,9 +24,9 @@ type PaymentRefunded struct {
 	EventTime               *types.Datetime         `json:"event_time,string"`
 	FeeRefund               *types.CurrencyValue    `json:"fee_refund,string"`
 	GrossRefund             *types.CurrencyValue    `json:"gross_refund,string"`
-	InitialPayment          int                     `json:"initial_payment,string"`
+	InitialPayment          int                     `json:"initial_payment"`
 	Instalments             int                     `json:"instalments,string"`
-	MarketingConsent        *types.MarketingConsent `json:"marketing_consent,string"`
+	MarketingConsent        *types.MarketingConsent `json:"marketing_consent"`
 	OrderID                 string                  `json:"order_id"`
 	Passthrough             string                  `json:"passthrough"`
 	Quantity                int                     `json:"quantity,string"`
