@@ -29,6 +29,7 @@ type PaymentSucceeded struct {
 	Instalments        int                     `json:"instalments,string"`
 	MarketingConsent   *types.MarketingConsent `json:"marketing_consent,string"`
 	NextBillDate       *types.Date             `json:"next_bill_date,string"`
+	NextPaymentAmount  *types.CurrencyValue    `json:"next_payment_amount,string,omitempty"`
 	OrderID            string                  `json:"order_id"`
 	Passthrough        string                  `json:"passthrough"`
 	PaymentMethod      string                  `json:"payment_method"`
