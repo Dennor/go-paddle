@@ -25,6 +25,7 @@ type Created struct {
 	SubscriptionPlanID int                     `json:"subscription_plan_id,string"`
 	UnitPrice          *types.CurrencyValue    `json:"unit_price,string"`
 	UpdateURL          string                  `json:"update_url"`
+	UserID             int                     `json:"user_id,string,omitempty"`
 	PSignature         string                  `json:"p_signature" php:"-"`
 }
 

@@ -3,6 +3,7 @@ package types
 import (
 	"bytes"
 	"encoding/json"
+	"errors"
 	"time"
 
 	"github.com/shopspring/decimal"
@@ -63,24 +64,38 @@ type MarketingConsent int8
 
 const abc = 1
 const (
-	_                        = iota
-	REFUSED MarketingConsent = iota
+	UNSET MarketingConsent = iota
+	REFUSED
 	GRANTED
 )
 
 func (m *MarketingConsent) UnmarshalText(data []byte) error {
-	if len(data) != 1 {
-		*m = MarketingConsent(0)
-		return nil
-	}
-	switch data[0] {
-	case '0':
-		*m = REFUSED
-	case '1':
-		*m = GRANTED
+	switch len(data) {
+	case 3:
+		if data[0] == '"' && data[2] == '"' {
+			data = data[1:2]
+		}
+		fallthrough
+	case 1:
+		switch data[0] {
+		case '0':
+			*m = REFUSED
+		case '1':
+			*m = GRANTED
+		default:
+			return errors.New("invalid marketing consent")
+		}
+	case 2:
+		if data[0] != '"' || data[1] != '"' {
+			return errors.New("invalid marketing consent")
+		}
+		fallthrough
+	case 0:
+		*m = UNSET
 	default:
-		*m = MarketingConsent(0)
+		return errors.New("invalid marketing consent")
 	}
+
 	return nil
 }
 
