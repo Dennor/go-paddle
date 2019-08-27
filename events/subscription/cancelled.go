@@ -16,7 +16,7 @@ type Cancelled struct {
 	Currency                  string                  `json:"currency"`
 	Email                     string                  `json:"email"`
 	EventTime                 *types.Datetime         `json:"event_time,string"`
-	MarketingConsent          *types.MarketingConsent `json:"marketing_consent"`
+	MarketingConsent          *types.MarketingConsent `json:"marketing_consent,string"`
 	Passthrough               string                  `json:"passthrough"`
 	Quantity                  int                     `json:"quantity,string"`
 	Status                    string                  `json:"status"`
