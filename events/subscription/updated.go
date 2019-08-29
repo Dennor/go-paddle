@@ -13,6 +13,7 @@ type Updated struct {
 	AlertName             string                  `json:"alert_name"`
 	CancelURL             string                  `json:"cancel_url"`
 	CheckoutID            string                  `json:"checkout_id"`
+	Currency              string                  `json:"currency,omitempty"`
 	Email                 string                  `json:"email"`
 	EventTime             *types.Datetime         `json:"event_time,string"`
 	MarketingConsent      *types.MarketingConsent `json:"marketing_consent,string"`
@@ -31,6 +32,7 @@ type Updated struct {
 	SubscriptionID        int                     `json:"subscription_id,string"`
 	SubscriptionPlanID    int                     `json:"subscription_plan_id,string"`
 	UpdateURL             string                  `json:"update_url"`
+	UserID                int                     `json:"user_id,string,omitempty"`
 	PSignature            string                  `json:"p_signature" php:"-"`
 }
 
