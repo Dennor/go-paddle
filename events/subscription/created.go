@@ -20,6 +20,7 @@ type Created struct {
 	NextBillDate       *types.Date             `json:"next_bill_date,string"`
 	Passthrough        string                  `json:"passthrough"`
 	Quantity           int                     `json:"quantity,string"`
+	SourcePage         string                  `json:"source_page,omitempty"`
 	Status             string                  `json:"status"`
 	SubscriptionID     int                     `json:"subscription_id,string"`
 	SubscriptionPlanID int                     `json:"subscription_plan_id,string"`
