@@ -22,6 +22,7 @@ type PaymentFailed struct {
 	Instalments           int                     `json:"instalments,string,omitempty"`
 	MarketingConsent      *types.MarketingConsent `json:"marketing_consent,string"`
 	NextRetryDate         *types.Date             `json:"next_retry_date,string"`
+	OrderID               string                  `json:"order_id,omitempty"`
 	Passthrough           string                  `json:"passthrough"`
 	Quantity              int                     `json:"quantity,string"`
 	Status                string                  `json:"status"`
