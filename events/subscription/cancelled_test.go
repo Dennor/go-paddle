@@ -38,7 +38,7 @@ func subscriptionCancelledData() struct {
 	sc := Cancelled{
 		AlertID:                   int(test.IntFromString(d.M["alert_id"])),
 		AlertName:                 d.M["alert_name"],
-		CancellationEffectiveDate: &types.Date{test.ParseTime(types.DateFormat, d.M["cancellation_effective_date"])},
+		CancellationEffectiveDate: &types.Date{test.ParseTime(types.DateFormat, d.M["cancellation_effective_date"]), false},
 		CheckoutID:                d.M["checkout_id"],
 		Currency:                  d.M["currency"],
 		Email:                     d.M["email"],

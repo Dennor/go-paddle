@@ -16,6 +16,7 @@ const (
 
 type Date struct {
 	time.Time
+	Empty bool
 }
 
 func (t *Date) UnmarshalJSON(data []byte) error {
@@ -28,12 +29,19 @@ func (t *Date) UnmarshalJSON(data []byte) error {
 }
 
 func (t *Date) UnmarshalText(data []byte) error {
+	if len(data) == 0 {
+		t.Empty = true
+		return nil
+	}
 	var err error
 	t.Time, err = time.Parse(DateFormat, string(data))
 	return err
 }
 
 func (t Date) String() string {
+	if t.Empty {
+		return ""
+	}
 	return t.Format(DateFormat)
 }
 

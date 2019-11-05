@@ -49,7 +49,7 @@ func subscriptionPaymentFailedData() struct {
 		EventTime:          &types.Datetime{test.ParseTime(types.DatetimeFormat, d.M["event_time"])},
 		HardFailure:        (*types.PhpBool)(&pbool),
 		MarketingConsent:   &mc,
-		NextRetryDate:      &types.Date{test.ParseTime(types.DateFormat, d.M["next_retry_date"])},
+		NextRetryDate:      &types.Date{test.ParseTime(types.DateFormat, d.M["next_retry_date"]), false},
 		Passthrough:        d.M["passthrough"],
 		Quantity:           int(test.IntFromString(d.M["quantity"])),
 		Status:             d.M["status"],

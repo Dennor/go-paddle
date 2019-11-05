@@ -84,7 +84,7 @@ func subscriptionCreatedData() (subscriptionCreatedData []struct {
 			Email:              d.M["email"],
 			EventTime:          &types.Datetime{test.ParseTime(types.DatetimeFormat, d.M["event_time"])},
 			MarketingConsent:   &mc,
-			NextBillDate:       &types.Date{test.ParseTime(types.DateFormat, d.M["next_bill_date"])},
+			NextBillDate:       &types.Date{test.ParseTime(types.DateFormat, d.M["next_bill_date"]), false},
 			Passthrough:        d.M["passthrough"],
 			Quantity:           int(test.IntFromString(d.M["quantity"])),
 			Status:             d.M["status"],

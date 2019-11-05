@@ -73,7 +73,7 @@ func subscriptionPaymentSucceededData() struct {
 		InitialPayment:     int(test.IntFromString(d.M["initial_payment"])),
 		Instalments:        int(test.IntFromString(d.M["instalments"])),
 		MarketingConsent:   &mc,
-		NextBillDate:       &types.Date{test.ParseTime(types.DateFormat, d.M["next_bill_date"])},
+		NextBillDate:       &types.Date{test.ParseTime(types.DateFormat, d.M["next_bill_date"]), false},
 		OrderID:            d.M["order_id"],
 		Passthrough:        d.M["passthrough"],
 		PaymentMethod:      d.M["payment_method"],
