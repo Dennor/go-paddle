@@ -16,6 +16,7 @@ type Updated struct {
 	Currency              string                  `json:"currency,omitempty"`
 	Email                 string                  `json:"email"`
 	EventTime             *types.Datetime         `json:"event_time,string"`
+	LinkedSubscriptions   string                  `json:"linked_subscriptions"`
 	MarketingConsent      *types.MarketingConsent `json:"marketing_consent,string"`
 	NewPrice              *types.CurrencyValue    `json:"new_price,string"`
 	NewQuantity           int                     `json:"new_quantity,string"`
