@@ -30,9 +30,12 @@ type PaymentRefunded struct {
 	OrderID                 string                  `json:"order_id"`
 	Passthrough             string                  `json:"passthrough"`
 	Quantity                int                     `json:"quantity,string"`
+	RefundReason            string                  `json:"refund_reason"`
 	RefundType              string                  `json:"refund_type"`
+	Status                  string                  `json:"status"`
 	SubscriptionID          int                     `json:"subscription_id,string"`
 	SubscriptionPaymentID   int                     `json:"subscription_payment_id,string"`
+	SubscriptionPlanID      int                     `json:"subscription_plan_id,string"`
 	TaxRefund               *types.CurrencyValue    `json:"tax_refund,string"`
 	UnitPrice               *types.CurrencyValue    `json:"unit_price,string"`
 	UserID                  int                     `json:"user_id,string"`
