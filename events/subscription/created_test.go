@@ -1,7 +1,11 @@
 package subscription
 
 import (
+	"crypto/rsa"
+	"crypto/x509"
 	"encoding/json"
+	"encoding/pem"
+	"fmt"
 	"testing"
 
 	"github.com/dennor/go-paddle/events"
@@ -88,7 +92,7 @@ func subscriptionCreatedData() (subscriptionCreatedData []struct {
 			EventTime:           &types.Datetime{test.ParseTime(types.DatetimeFormat, d.M["event_time"])},
 			LinkedSubscriptions: d.M["linked_subscriptions"],
 			MarketingConsent:    &mc,
-			NextBillDate:        &types.Date{test.ParseTime(types.DateFormat, d.M["next_bill_date"]), false},
+			NextBillDate:        &types.Date{Time: test.ParseTime(types.DateFormat, d.M["next_bill_date"]), Empty: false},
 			Passthrough:         d.M["passthrough"],
 			Quantity:            int(test.IntFromString(d.M["quantity"])),
 			Status:              d.M["status"],
