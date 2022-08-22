@@ -16,7 +16,7 @@ type PaymentFailed struct {
 	CancelURL             string                  `json:"cancel_url"`
 	CheckoutID            string                  `json:"checkout_id"`
 	Currency              string                  `json:"currency"`
-	CustomerData          string                  `json:"customer_data"`
+	CustomData            string                  `json:"custom_data"`
 	Email                 string                  `json:"email"`
 	EventTime             *types.Datetime         `json:"event_time,string"`
 	HardFailure           *types.PhpBool          `json:"hard_failure,string,omitempty"`

@@ -14,7 +14,7 @@ type Created struct {
 	CancelURL           string                  `json:"cancel_url"`
 	CheckoutID          string                  `json:"checkout_id"`
 	Currency            string                  `json:"currency"`
-	CustomerData        string                  `json:"customer_data"`
+	CustomData          string                  `json:"custom_data"`
 	Email               string                  `json:"email"`
 	EventTime           *types.Datetime         `json:"event_time,string"`
 	LinkedSubscriptions string                  `json:"linked_subscriptions"`

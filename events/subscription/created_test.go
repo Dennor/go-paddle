@@ -1,11 +1,7 @@
 package subscription
 
 import (
-	"crypto/rsa"
-	"crypto/x509"
 	"encoding/json"
-	"encoding/pem"
-	"fmt"
 	"testing"
 
 	"github.com/dennor/go-paddle/events"
@@ -21,7 +17,7 @@ func subscriptionCreatedData() (subscriptionCreatedData []struct {
 	sc Created
 }) {
 	for _, data := range []map[string]string{
-		map[string]string{
+		{
 			"alert_id":             "1024",
 			"alert_name":           "subscription_created",
 			"cancel_url":           "https://checkout.paddle.com/subscription/cancel?user=5&subscription=4&hash=a4dca832089cc76fc05da732664d971c6a7c8840",
@@ -40,7 +36,7 @@ func subscriptionCreatedData() (subscriptionCreatedData []struct {
 			"unit_price":           "49.99",
 			"update_url":           "https://checkout.paddle.com/subscription/update?user=4&subscription=2&hash=a0aef1af98b11ef5d220751a77d0eda187f836d4",
 		},
-		map[string]string{
+		{
 			"alert_id":             "1024",
 			"alert_name":           "subscription_created",
 			"cancel_url":           "https://checkout.paddle.com/subscription/cancel?user=5&subscription=4&hash=a4dca832089cc76fc05da732664d971c6a7c8840",
@@ -59,7 +55,7 @@ func subscriptionCreatedData() (subscriptionCreatedData []struct {
 			"unit_price":           "49.99",
 			"update_url":           "https://checkout.paddle.com/subscription/update?user=4&subscription=2&hash=a0aef1af98b11ef5d220751a77d0eda187f836d4",
 		},
-		map[string]string{
+		{
 			"alert_id":             "1024",
 			"alert_name":           "subscription_created",
 			"cancel_url":           "https://checkout.paddle.com/subscription/cancel?user=5&subscription=4&hash=a4dca832089cc76fc05da732664d971c6a7c8840",
