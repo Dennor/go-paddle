@@ -45,6 +45,10 @@ func (t Date) String() string {
 	return t.Format(DateFormat)
 }
 
+func (t Date) GoString() string {
+	return t.String()
+}
+
 type Datetime struct {
 	time.Time
 }
@@ -66,6 +70,10 @@ func (t *Datetime) UnmarshalText(data []byte) error {
 
 func (t Datetime) String() string {
 	return t.Format(DatetimeFormat)
+}
+
+func (t Datetime) GoString() string {
+	return t.String()
 }
 
 type MarketingConsent int8
