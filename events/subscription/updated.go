@@ -14,6 +14,7 @@ type Updated struct {
 	CancelURL             string                  `json:"cancel_url"`
 	CheckoutID            string                  `json:"checkout_id"`
 	Currency              string                  `json:"currency,omitempty"`
+	CustomerData          string                  `json:"customer_data"`
 	Email                 string                  `json:"email"`
 	EventTime             *types.Datetime         `json:"event_time,string"`
 	LinkedSubscriptions   string                  `json:"linked_subscriptions"`

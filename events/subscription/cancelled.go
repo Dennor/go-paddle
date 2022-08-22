@@ -14,6 +14,7 @@ type Cancelled struct {
 	CancellationEffectiveDate *types.Date             `json:"cancellation_effective_date,string"`
 	CheckoutID                string                  `json:"checkout_id"`
 	Currency                  string                  `json:"currency"`
+	CustomerData              string                  `json:"customer_data"`
 	Email                     string                  `json:"email"`
 	EventTime                 *types.Datetime         `json:"event_time,string"`
 	LinkedSubscriptions       string                  `json:"linked_subscriptions"`

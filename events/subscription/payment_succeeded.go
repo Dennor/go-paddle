@@ -21,6 +21,7 @@ type PaymentSucceeded struct {
 	Coupon                string                  `json:"coupon"`
 	Currency              string                  `json:"currency"`
 	CustomerName          string                  `json:"customer_name"`
+	CustomerData          string                  `json:"customer_data"`
 	Earnings              *types.CurrencyValue    `json:"earnings,string"`
 	Email                 string                  `json:"email"`
 	EventTime             *types.Datetime         `json:"event_time,string"`
